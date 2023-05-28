@@ -1,0 +1,90 @@
+﻿<!-- EJERCICIO 52 (EJERCICIO 27) – Semáforo: cuando se ilumine la luz roja indicará a los vehículos que paren, cuando se ilumina la luz ámbar indica que estén alerta, y cuando se ilumina la luz verde indica que pueden continuar. -->
+
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Semáforo - Colores</title>
+
+<style>
+  .semaforo {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100px;
+    border:1px solid black;
+    padding:10px;
+  }
+
+  .luz {
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    margin:5px;
+  }
+
+  .rojo {
+    background-color:red;
+  }
+
+  .amarillo {
+    background-color:yellow;
+  }
+
+  .verde {
+    background-color:green;
+  }
+
+  .apagado {
+    opacity:0.3;
+  }
+</style>
+
+</head>
+
+<body>
+
+  <div class="semaforo">
+    <div class="luz rojo apagado" id="luzRoja"></div>
+    <div class="luz amarillo apagado" id="luzAmarilla"></div>
+    <div class="luz verde apagado" id="luzVerde"></div>
+  </div>
+  
+  <p>Escriba "<b>rojo</b>", "<b>ámbar</b>" o "<b>verde</b>" y presione el botón "<b>Cambiar color</b>" para verificar el color.</p>
+  <input type="text" id="color" placeholder="Introduzca un color">
+  <button onclick="cambiarColor()">Cambiar color</button>
+
+  <script>
+    function cambiarColor() {
+      const luzRoja = document.getElementById('luzRoja');
+      const luzAmarilla = document.getElementById('luzAmarilla');
+      const luzVerde = document.getElementById('luzVerde');
+      const color = document.getElementById('color').value;
+
+      luzRoja.classList.add('apagado');
+      luzAmarilla.classList.add('apagado');
+      luzVerde.classList.add('apagado');
+
+      switch (color.toLowerCase()) {
+        case 'rojo':
+          luzRoja.classList.remove('apagado');
+          break;
+        case 'ámbar':
+          luzAmarilla.classList.remove('apagado');
+          break;
+        case 'verde':
+          luzVerde.classList.remove('apagado');
+          break;
+        default:
+          alert('Color no válido. Introduzca "rojo", "ámbar" o "verde".');
+          break;
+      }
+    }
+  </script>
+
+</body>
+
+</html>

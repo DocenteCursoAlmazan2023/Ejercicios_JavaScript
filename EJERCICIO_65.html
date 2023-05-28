@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Botón con Evento "CallBack"</title>
+	
+	<style>
+		body {
+			font-family:Arial,sans-serif;
+			text-align:center;
+		}
+		input,button {
+			font-size:20px; // 1em =  16px
+		}
+		#resultado {
+			margin-top:20px;
+			margin-bottom:20px;
+			font-weight:bold;
+		}
+    </style>
+	
+</head>
+
+<body>
+
+    <button id="callback-btn">Haga clic aquí</button>
+
+    <script>
+        document.querySelector("#callback-btn")
+		//	"querySelector()": Es un método del objeto document que devuelve el primer elemento HTML que coincida con el selector especificado. Si no se encuentra ningún elemento que coincida, devuelve null. */
+		//	"#callback-btn": Es el selector que se busca en el documento HTML. En este caso, busca el primer elemento con el ID "callback-btn".
+        document.addEventListener("click", function() {  //.addEventListener("click", function() {
+        console.log("El usuario ha hecho clic en el botón.");
+        });
+    </script>
+	
+</body>
+
+</html>

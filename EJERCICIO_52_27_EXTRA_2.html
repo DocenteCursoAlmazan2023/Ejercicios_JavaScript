@@ -1,0 +1,101 @@
+﻿<!-- Simulación Semáforo -->
+
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Semáforo</title>
+
+<style>
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+
+  .semaforo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    width: 150px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .luz {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+
+  .rojo {
+    background-color: #f00;
+  }
+
+  .amarillo {
+    background-color: #ff0;
+  }
+
+  .verde {
+    background-color: #0f0;
+  }
+
+  .apagado {
+    opacity: 0.3;
+  }
+
+</style>
+
+</head>
+
+<body>
+
+<div class="semaforo">
+  <div class="luz rojo apagado" id="luzRoja"></div>
+  <div class="luz amarillo apagado" id="luzAmarilla"></div>
+  <div class="luz verde apagado" id="luzVerde"></div>
+</div>
+
+<script>
+  const luzRoja = document.getElementById('luzRoja');
+  const luzAmarilla = document.getElementById('luzAmarilla');
+  const luzVerde = document.getElementById('luzVerde');
+
+  function apagarTodasLasLuces() {
+    luzRoja.classList.add('apagado');
+    luzAmarilla.classList.add('apagado');
+    luzVerde.classList.add('apagado');
+  }
+
+  function cicloSemaforo() {
+    apagarTodasLasLuces();
+    luzRoja.classList.remove('apagado');
+    setTimeout(() => {
+      apagarTodasLasLuces();
+      luzAmarilla.classList.remove('apagado');
+    }, 3000);
+    setTimeout(() => {
+      apagarTodasLasLuces();
+      luzVerde.classList.remove('apagado');
+    }, 6000);
+    setTimeout(() => {
+      apagarTodasLasLuces();
+    }, 9000);
+  }
+
+  setInterval(cicloSemaforo, 10000);
+  cicloSemaforo();
+</script>
+
+</body>
+
+</html>

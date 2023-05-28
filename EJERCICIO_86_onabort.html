@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Ejemplo de evento onabort</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    img {
+      max-width:1200px;
+	  max-height:600px
+      display:block;
+      margin:0 auto;
+    }
+    .message {
+      text-align:center;
+      margin-top:20px;
+      font-size:20px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <img src="https://r4.wallpaperflare.com/wallpaper/850/627/675/batman-superman-dc-comics-artwork-wallpaper-1930f8fdd1aa1d7b4677b84f80b1d6ed.jpg" id="imagen" alt="Imagen de ejemplo">
+  <div class="message" id="message"></div>
+
+  <script>
+    const imagen = document.getElementById('imagen');
+    const message = document.getElementById('message');
+
+    imagen.addEventListener('abort', function() {
+      alert('¡La carga de la imagen ha sido cancelada!');
+    });
+  </script>
+
+</body>
+
+</html>

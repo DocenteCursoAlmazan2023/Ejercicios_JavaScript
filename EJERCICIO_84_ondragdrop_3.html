@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Evento "ondragdrop" (III)</title>
+  
+  <style>
+    #drag {
+      width:100px;
+      height:50px;
+      background-color:blue;
+      color:white;
+      text-align:center;
+      padding-top:30px;
+      cursor:move;
+	}
+    #drop {
+      width:200px;
+      height:100px;
+      background-color:red;
+      color:white;
+      text-align:center;
+      padding-top:60px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="drag" draggable="true">¡Arrástrame!</div>
+  <div id="drop">¡Suéltame aquí!</div>
+  
+  <script type="text/javascript">
+    const drag = document.getElementById("drag");
+    const drop = document.getElementById("drop");
+	
+    function dragStart(event) {
+      event.dataTransfer.setData("text/plain", event.target.id);
+    }
+    function dragOver(event) {
+      event.preventDefault();
+    }
+    function dropHandler(event) {
+      event.preventDefault();
+      const data = event.dataTransfer.getData("text/plain");
+      const draggedElement = document.getElementById(data);
+      event.target.appendChild(draggedElement);
+	  // "event.target.appendChild(draggedElement);" agrega el elemento arrastrado "draggedElement" como último hijo del elemento destino "event.target" cuando se suelta el elemento arrastrado.
+	  // "event" es el evento que se desencadena cuando se suelta el elemento arrastrado.
+      // "target" es la propiedad del evento que devuelve el elemento HTML que es el objetivo actual del evento.
+	  // "appendChild()" es un método que agrega un nuevo elemento como último hijo de un elemento existente.
+	  // "draggedElement" es el elemento arrastrado que se agregará como último hijo del elemento destino.
+      draggedElement.style.display = 'none';
+	  // "draggedElement.style.display = 'none';" establece la propiedad CSS "display" del elemento arrastrado "draggedElement" a 'none', lo que hace que el elemento desaparezca de la vista del usuario.
+    }
+    drag.addEventListener("dragstart", dragStart);
+    drop.addEventListener("dragover", dragOver);
+    drop.addEventListener("drop", dropHandler);
+</script>
+</body>
+</html>

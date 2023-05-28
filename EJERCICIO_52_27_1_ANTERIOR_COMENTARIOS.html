@@ -1,0 +1,85 @@
+﻿<!-- EJERCICIO 52 (EJERCICIO 27) – Semáforo: cuando se ilumine la luz roja indicará a los vehículos que paren, cuando se ilumina la luz ámbar indica que estén alerta, y cuando se ilumina la luz verde indica que pueden continuar. -->
+
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Semáforo - Colores</title>
+
+    <style>
+        body {
+			font-family:Arial,sans-serif;
+			text-align:center;
+		}
+        label,input,button {
+			font-size:20px;
+			margin-top:10px;
+			margin-bottom:10px; // 1em = 16px
+		}
+        #result {
+			margin-top:20px;
+			margin-bottom:20px;
+			font-weight:bold;
+		}
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Introduzca un color</h1>
+    <p>Escriba "rojo", "ámbar" o "verde", y presione el botón para verificar el color.</p>
+    <input type="text" id="colorInput" placeholder="Introduzca un color">
+    <button id="checkColorBtn">Verificar color</button>
+    <div id="result"></div>
+
+    <script type="text/javascript">
+
+        const colorInput = document.getElementById('colorInput');
+        const result = document.getElementById('result');
+		
+		// Se seleccionan elementos HTML usando "getElementById" y los almacena en variables:
+		// - colorInput: elemento de entrada donde se almacena el color.
+		// - result: elemento donde se mostrará el mensaje resultante.
+
+        document.getElementById('checkColorBtn').onclick = () => {
+		
+		// Se establece una función de manejador de eventos "onclick" en el botón con el ID "checkColorBtn".
+		// Esta función se ejecutará cuando se haga clic en el botón.
+
+            const color = colorInput.value.toLowerCase().trim();
+            let mensaje;
+			
+		// El código "const color = colorInput.value.toLowerCase().trim();" realiza tres acciones en la entrada del valor introducido:
+		// 1 - colorInput.value: Obtiene el valor introducido en el elemento de entrada "colorInput".
+		// 2 - toLowerCase(): Convierte el valor obtenido a minúsculas.
+		// 3 - trim(): Elimina los espacios en blanco al principio y al final del valor.
+		// Esto es útil para manejar casos en los que se hayan ingresado espacios antes o después del texto real, lo que podría causar que la comparación falle.
+		// Después de realizar estas acciones, el resultado se almacena en la constante "color".
+		// Y, acto seguido, se declara una variable "mensaje" que almacenará el mensaje resultante.
+
+            switch (color) {
+                case 'rojo':
+                    mensaje = 'El color introducido es "rojo": ¡¡¡ ALTO !!!';
+                    break;
+                case 'ámbar':
+                    mensaje = 'El color introducido es "ámbar": ¡¡¡ PRECAUCIÓN !!!';
+                    break;
+                case 'verde':
+                    mensaje = 'El color introducido es "verde": ¡¡¡ PUEDE CONTINUAR !!!';
+                    break;
+                default:
+                    mensaje = 'Por favor, introduzca "rojo", "ámbar" o "verde".';
+            }
+
+            result.textContent = mensaje;
+        };
+
+    </script>
+
+</body>
+
+</html>

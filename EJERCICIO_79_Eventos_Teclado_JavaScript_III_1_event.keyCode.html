@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Eventos de Teclado en JavaScript (III) - Código Tecla Pulsada (I)</title>
+  
+  <style>
+    body {
+      font-family:Arial,sans-serif;
+    }
+    #mensaje {
+      font-size:30px;
+      font-weight:bold;
+      color:#333;
+      margin-top:50px;
+      text-align:center;
+    }
+  </style>
+  
+  <script type="text/javascript">
+    function mostrarMensaje(codigo) {
+      const mensaje = document.getElementById("mensaje");
+      mensaje.innerHTML = `Presionaste la tecla con código ${codigo}`;
+    }
+
+    document.addEventListener("keydown", function (event) {
+      const codigo = event.keyCode;
+      mostrarMensaje(codigo);
+    });
+  </script>
+
+<!-- Cuando se presione una tecla del teclado, se mostrará un mensaje personalizado en el elemento <div> con el ID "mensaje" que indicará el código de la tecla presionada en lugar del carácter. -->
+
+</head>
+
+<body>
+
+  <div id="mensaje"></div>
+  
+</body>
+
+</html>

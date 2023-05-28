@@ -1,0 +1,61 @@
+﻿<!-- EJERCICIO 43 (EJERCICIO 18) – Crear un código HTML+CSS+JavaScript que INTENTE abrir el archivo "documento.txt" y leer su contenido. Si el archivo no se encuentra, se producirá una EXCEPCIÓN "archivo_no_encontrado", y si el archivo se encuentra, pero no se puede leer, se producirá una nueva EXCEPCIÓN "error_de_lectura". Además, independientemente de si se produjo una excepción o no, FINALMENTE se cerrará el archivo, asegurándose de que se liberen los recursos correctamente. -->
+
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Leer archivo</title>
+	
+	<style>
+		body {
+			font-family:Arial,sans-serif;
+			//text-align:center;
+		}
+		input,button {
+			font-size:20px; // 1em =  16px
+		}
+		#resultado {
+			margin-top:20px;
+			margin-bottom:20px;
+			font-weight:bold;
+		}
+	</style>
+
+</head>
+
+<body>
+    
+	<h1>Lector de archivos</h1>
+    <input type="file" id="inputArchivo" />
+    <div id="contenido"></div>
+
+    <script type="text/javascript">
+        document.getElementById('inputArchivo').addEventListener('change', function(evento) {
+            let archivo = evento.target.files[0];
+            let contenido = document.getElementById('contenido');
+            
+            if (archivo) {
+                let lector = new FileReader();
+                
+                lector.onload = function(e) {
+					let textoFormateado = e.target.result.replace(/\n/g, '<br>');
+                    contenido.innerHTML = textoFormateado;
+                };
+                
+                lector.onerror = function() {
+                    contenido.innerHTML = 'EXCEPCIÓN: error_de_lectura';
+                };
+                
+                lector.readAsText(archivo);
+            } else {
+                contenido.innerHTML = 'EXCEPCIÓN: archivo_no_encontrado';
+            }
+        });
+    </script>
+	
+</body>
+
+</html>

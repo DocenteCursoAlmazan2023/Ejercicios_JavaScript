@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Área de un triángulo</title>
+
+  <style>
+    body {
+			font-family: Arial, sans-serif;
+			text-align:center;
+    }
+    input, button {
+            font-size:20px;
+			font-weight:bold;
+            padding:10px 20px;
+            margin:10px; // 1em =  16px
+    }
+	#resultado {
+            font-size:40px;
+            font-weight:bold;
+            margin-top:20px;
+			margin-bottom:20px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1>Calculadora de área de un triángulo</h1>
+  <label for="base">Base:</label>
+  <input type="number" id="base" min="0"><br>
+  <label for="altura">Altura:</label>
+  <input type="number" id="altura" min="0"><br>
+
+  <button onclick="calcularArea()">Calcular área</button>
+  <div id="resultado"></div>
+
+  <script type="text/javascript">
+    function calcularArea() {
+      const base = parseFloat(document.getElementById("base").value);
+	  // "parseFloat()": Esta función convierte el valor devuelto por ".value" en un número de tipo float (número real con decimales). Si el valor no es un número válido, lanzará un error.
+	  // Esta línea de código selecciona el valor de un elemento de entrada de tipo "base" con el ID "base", convierte el valor en un número de tipo float y lo guarda en la constante "base".
+	  const altura = parseFloat(document.getElementById("altura").value);
+	  // "parseFloat()": Esta función convierte el valor devuelto por ".value" en un número de tipo float (número real con decimales). Si el valor no es un número válido, lanzará un error.
+	  // Esta línea de código selecciona el valor de un elemento de entrada de tipo "altura" con el ID "altura", convierte el valor en un número de tipo float y lo guarda en la constante "altura".
+      const area = (base * altura) / 2;
+      document.getElementById("resultado").innerHTML = 'Área: ' + area.toFixed(2) + ' centímetros cuadrados';
+	  // "toFixed()" es un método que se utiliza para formatear un número redondeándolo hasta un número específico de decimales. En este caso, el número de decimales es 2.
+    }
+  </script>
+
+</body>
+
+</html>

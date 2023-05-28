@@ -1,0 +1,74 @@
+﻿<!-- EJERCICIO 52 (EJERCICIO 27) – Semáforo: cuando se ilumine la luz roja indicará a los vehículos que paren, cuando se ilumina la luz ámbar indica que estén alerta, y cuando se ilumina la luz verde indica que pueden continuar. -->
+
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Semáforo - Colores</title>
+
+    <style>
+        body {
+			font-family:Arial,sans-serif;
+			text-align:center;
+		}
+        label,input,button {
+			font-size:20px;
+			margin-top:10px;
+			margin-bottom:10px; // 1em = 16px
+		}
+        #result {
+			margin-top:20px;
+			margin-bottom:20px;
+			font-weight:bold;
+		}
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Introduzca un color</h1>
+    <p>Escriba "rojo", "ámbar" o "verde", y presione el botón para verificar el color.</p>
+    <input type="text" id="colorInput" placeholder="Introduzca un color">
+    <button id="checkColorBtn">Verificar color</button>
+    <div id="result"></div>
+
+    <script type="text/javascript">
+        const colorInput = document.getElementById('colorInput');
+        const result = document.getElementById('result');
+		
+        function checkColor() {
+
+		    const color = colorInput.value.toLowerCase().trim();
+            let mensaje;
+			
+            switch (color) {
+                case 'rojo':
+                    mensaje = 'El color introducido es "rojo": ¡¡¡ ALTO !!!';
+                    break;
+                case 'ámbar':
+                    mensaje = 'El color introducido es "ámbar": ¡¡¡ PRECAUCIÓN !!!';
+                    break;
+                case 'verde':
+                    mensaje = 'El color introducido es "verde": ¡¡¡ PUEDE CONTINUAR !!!';
+                    break;
+                default:
+                    mensaje = 'Por favor, introduzca "rojo", "ámbar" o "verde".';
+            }
+
+            result.textContent = mensaje;
+        };
+		
+		document.getElementById('checkColorBtn').addEventListener('click',checkColor);
+		// "document.getElementById('checkColorBtn')": Selecciona un elemento del documento HTML que tenga el atributo "id" igual a "checkColorBtn". Esto es comúnmente utilizado para acceder a un botón, un div, un input, entre otros elementos.
+		// ".addEventListener('click',checkColor)": Añade un "escuchador de eventos" (addEventListener) al elemento seleccionado en el paso anterior. En este caso, el "escuchador de eventos" es para el evento "click", que se activa cuando el usuario hace clic en el elemento.
+		// "checkColor": Es una función que se ejecutará cuando el evento "click" sea activado. Entonces, al hacer clic en el elemento con el atributo "id" igual a "checkColorBtn", se ejecutará la función "checkColor".
+		
+    </script>
+
+</body>
+
+</html>

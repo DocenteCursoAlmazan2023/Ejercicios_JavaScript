@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+  
+  <meta charset="UTF-8">
+  <title>Evento "onresize"</title>
+
+  <style>
+    /* Estilos para el mensaje */
+    #mensaje {
+      font-size:30px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1 id="mensaje">¡Cambia el tamaño de la ventana!</h1>
+
+  <script type="text/javascript">
+    // Obtener el elemento del mensaje y la ventana.
+    var mensaje = document.getElementById('mensaje');
+    var ventana = window;
+
+    // Agregar un controlador de eventos para el evento "onresize".
+    ventana.onresize = function() {
+      mensaje.innerHTML = 'Tamaño de la ventana: ' + ventana.innerWidth + 'x' + ventana.innerHeight;
+    };
+	
+	// Agregar un controlador de eventos para el evento "onmove".
+    window.onmove = function() {
+      console.log("¡La ventana se ha movido!");
+    };
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Objeto de Frecuencias</title>
+  
+  <style>
+    body {
+		font-family:Arial,sans-serif;
+		text-align:center;
+    }
+
+    #resultado {
+		font-size:20px;
+		font-weight:bold;
+		color:#444;
+    }
+
+    #numeros {
+		font-size:20px;
+		font-weight:bold;
+		margin-top:20px;
+		margin-bottom:20px;
+    }
+  </style>
+  
+</head>
+
+<body>
+
+	<h1>Objeto de Frecuencias</h1>
+	<div id="items"></div>
+
+	<script>
+		const numItems = 8;	// Cantidad de números aleatorios que se desean generar
+		const min = 1;		// El valor mínimo del rango de números aleatorios
+		const max = 10;		// El valor máximo del rango de números aleatorios
+
+		const items = Array.from({ length: numItems }, () => Math.floor(Math.random() * (max - min + 1)) + min); // Genera un array de números aleatorios
+
+		const frecuencias = items.reduce((acc, curr) => { 	// La función "reduce" se utiliza para calcular las frecuencias de los números en el array 'items'.
+			acc[curr] = (acc[curr] || 0) + 1; 				// Para cada número (curr) en el array, verificamos si ya existe en el objeto acumulador (acc).
+			return acc;										// Si existe, incrementamos su valor en 1, de lo contrario, lo inicializamos con 1.
+		}, {});												// Se devuelve el objeto acumulador actualizado para la siguiente iteración.
+															// Se inicializa el objeto acumulador como un objeto vacío.
+
+		console.log(items); 		// Muestra el array de números aleatorios
+		console.log(frecuencias);	// Muestra las frecuencias de los números en el array
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Área de un círculo</title>
+
+  <style>
+    body {
+			font-family: Arial, sans-serif;
+			text-align:center;
+    }
+    input, button {
+            font-size:20px;
+			font-weight:bold;
+            padding:10px 20px;
+            margin:10px; // 1em =  16px
+    }
+	#resultado {
+            font-size:40px;
+            font-weight:bold;
+            margin-top:20px;
+			margin-bottom:20px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1>Calculadora de área de un círculo</h1>
+  <label for="radio">Radio:</label>
+  <input type="number" id="radio" min="0"><br>
+  <button onclick="calcularArea()">Calcular área</button>
+  <div id="resultado"></div>
+
+  <script type="text/javascript">
+    function calcularArea() {
+      const radio = parseFloat(document.getElementById("radio").value);
+	  // "parseFloat()": Esta función convierte el valor devuelto por ".value" en un número de tipo float (número real con decimales). Si el valor no es un número válido, lanzará un error.
+	  // Esta línea de código selecciona el valor de un elemento de entrada de tipo "radio" con el ID "radio", convierte el valor en un número de tipo float y lo guarda en la constante "radio".
+      const area = Math.PI * Math.pow(radio, 2);
+	  // "Math.PI" es una propiedad estática de la clase Math en JavaScript que representa el valor de π (pi) con una precisión de alrededor de 15 dígitos. Es aproximadamente igual a 3.141592653589793.
+	  // "Math.pow (radio, 2)" es una función de la clase Math que eleva un número, en este caso "radio", a una potencia dada, en este caso "2".
+      document.getElementById("resultado").innerHTML = 'Área: ' + area.toFixed(2) + ' centímetros cuadrados';
+	  // "toFixed()" es un método que se utiliza para formatear un número redondeándolo hasta un número específico de decimales. En este caso, el número de decimales es 2.
+    }
+  </script>
+  
+</body>
+
+</html>

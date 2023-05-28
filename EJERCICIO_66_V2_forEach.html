@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Lista de Productos</title>
+
+    <style>
+        body {
+            font-family:Arial,sans-serif;
+        }
+
+        ul {
+            list-style-type:none;
+            padding:0;
+        }
+
+        li {
+            background-color:#f9f9f9;
+            border:1px solid #ccc;
+            margin-bottom:10px;
+            padding:10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <ul><!-- Contenedor para mostrar los productos  --></ul>
+    </div>
+
+	<script>
+		const products = [
+			{ title: 'Hamburguesa', price: 15 },
+			{ title: 'Pizza', price: 12 },
+			{ title: 'Perrito', price: 9 },
+		];
+
+		const ul = document.querySelector('#app ul');
+
+		products.forEach(product => {
+			const li = document.createElement('li');
+			li.textContent = `${product.title} - ${product.price}€`;
+			ul.appendChild(li);
+		});
+	</script>
+
+</body>
+
+</html>

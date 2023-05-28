@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Ordenamiento por Burbuja</title>
+	
+    <style>
+        body {
+			font-family: Arial, sans-serif;
+			text-align:center;
+        }
+        .container {
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+        }
+        button {
+            background-color:#4CAF50;
+            border:none;
+            color:white;
+            padding:20px 30px;
+            text-align:center;
+            text-decoration:none;
+            font-size:20px;
+            margin-top:10px;
+        }
+    </style>
+	
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Ordenamiento por Algoritmo de Burbuja</h1>
+        <div id="array"></div>
+        <button onclick="burbuja()">Ordenar</button>
+    </div>
+	
+    <script type="text/javascript">
+        // Array de números desordenados
+        let numeros = [5,3,8,4,9,1,6,2,7];
+        document.getElementById("array").innerHTML = "Array desordenado: " + numeros;
+
+        // Función de ordenamiento por burbuja
+        function burbuja() {
+          let n = numeros.length;
+          for (let i = 0; i < n - 1; i++) {
+            for (let j = 0; j < n - i - 1; j++) {
+              if (numeros[j] > numeros[j + 1]) {
+                let temp = numeros[j];
+                numeros[j] = numeros[j + 1];
+                numeros[j + 1] = temp;
+              }
+            }
+          }
+          document.getElementById("array").innerHTML = "Array ordenado: " + numeros;
+        }
+    </script>
+	
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Evento "onerror"</title>
+
+  <style>
+    img {
+      max-width:1200px;
+	  max-height:600px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1>Evento "onerror" en JavaScript</h1>
+  <img id="imagen" src="BatMan_Meditando.png" alt="Imagen de ejemplo">
+
+  <script type="text/javascript">
+    const imagen = document.getElementById('imagen');
+    imagen.onerror = function() {
+      alert('¡Error al cargar la imagen! Mostrando imagen de respaldo...');
+      imagen.src = 'SuperMan_Meditando.png';
+    };
+  </script>
+
+</body>
+
+</html>

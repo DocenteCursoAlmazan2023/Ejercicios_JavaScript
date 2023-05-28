@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Evento "ondragdrop (IV)"</title>
+  <style>
+    #drag {
+      width:100px;
+      height:auto;
+    }
+    #drop {
+      width:200px;
+      height:100px;
+      background-color:red;
+      color:white;
+      text-align:center;
+      padding-top:60px;
+    }
+  </style>
+</head>
+
+<body>
+  <img id="drag" src="imagen5.jpg" draggable="true" />
+  <div id="drop">¡Suéltame aquí...Y lo sabes!</div>
+
+  <script type="text/javascript">
+    const drag = document.getElementById("drag");
+    const drop = document.getElementById("drop");
+
+    function dragStart(event) {
+      event.dataTransfer.setData("text/plain", event.target.id);
+    }
+
+    function dragOver(event) {
+      event.preventDefault();
+    }
+
+   function dropHandler(event) {
+	  event.preventDefault();
+      const data = event.dataTransfer.getData("text/plain");
+      const draggedElement = document.getElementById(data);
+      event.target.appendChild(draggedElement);
+      //draggedElement.style.display = 'none';
+	}
+
+    drag.addEventListener("dragstart", dragStart);
+    drop.addEventListener("dragover", dragOver);
+    drop.addEventListener("drop", dropHandler);
+  </script>
+</body>
+</html>

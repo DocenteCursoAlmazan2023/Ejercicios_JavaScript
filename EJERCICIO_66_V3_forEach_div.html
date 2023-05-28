@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Lista de Productos</title>
+
+    <style>
+        .product {
+            border:1px solid #ccc;
+            border-radius:10px;
+			margin:10px;
+			padding:10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script>
+        const products = [
+            { title: 'Hamburguesa', price: 15 },
+            { title: 'Pizza', price: 12 },
+            { title: 'Perrito', price: 9 },
+        ];
+
+        const app = document.querySelector('#app');
+
+        products.forEach(product => {
+            const div = document.createElement('div');
+            div.textContent = `${product.title} - ${product.price}€`;
+            app.appendChild(div);
+        });
+    </script>
+
+</body>
+
+</html>

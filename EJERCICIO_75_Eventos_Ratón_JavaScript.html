@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+	<meta charset="UTF-8">
+	<title>Eventos de Ratón en JavaScript</title>
+
+	<style>
+		img {
+			width:300px;
+			height:300px;
+			margin:30px;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		function onClickEvent() {
+			alert('Evento onClick');
+		}
+
+		function onDblClickEvent() {
+			alert('Evento onDblClick');
+		}
+
+		function onMouseDownEvent() {
+			alert('Evento onMouseDown');
+		}
+
+		function onMouseUpEvent() {
+			alert('Evento onMouseUp');
+		}
+
+		function onMouseOverEvent() {
+			alert('Evento onMouseOver');
+		}
+
+		function onMouseMoveEvent() {
+			alert('Evento onMouseMove');
+		}
+
+		function onMouseOutEvent() {
+			alert('Evento onMouseOut');
+		}
+	</script>
+
+</head>
+
+<body>
+
+  <img src="Imagen1.jpg" alt="Imagen 1" onClick="onClickEvent()">
+  <img src="Imagen2.jpg" alt="Imagen 2" onDblClick="onDblClickEvent()">
+  <img src="Imagen3.jpg" alt="Imagen 3" onMouseDown="onMouseDownEvent()" onMouseMove="onMouseMoveEvent()" onMouseUp="onMouseUpEvent()">
+  <img src="Imagen4.jpg" alt="Imagen 4" onMouseOver="onMouseOverEvent()" onMouseOut="onMouseOutEvent()">
+
+</body>
+
+</html>
